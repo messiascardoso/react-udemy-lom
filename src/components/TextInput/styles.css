@@ -1,0 +1,17 @@
+.textInput {
+  margin: 30px 0;
+}
+
+.textInput label {
+  margin-right: 20px;
+}
+.textInput input {
+  margin-right: 20px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #dedede;
+}
+
+.textInput input:focus-visible {
+  outline-color: #cdc5c5;
+}
