@@ -19,8 +19,12 @@ describe('<PostCard /> ', () => {
   });
 
   it('should match snapshot', () => {
+    // Cria uma foto do componente e caso seja alterado irá dar erro no teste.
+    // Exemplos: Troca de tag, class etc..
+    // Obs: The fisrt element is component.
     const { container } = render(<PostCard {...props}/>);
     expect(container.firstChild).toMatchSnapshot();
+    // Para atualizar o snapshot precisa apertar a tecla `U` com o jest rodando.
   });
 
 });
