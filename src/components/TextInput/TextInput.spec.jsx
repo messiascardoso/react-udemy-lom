@@ -8,7 +8,7 @@ describe("<TextInput />", () => {
     const { debug } = render(
       <TextInput handleChange={fn} searchValue={"testando"} />
     );
-   // debug();
+    debug();
     const input = screen.getByLabelText("Pesquisar");
     expect(input).toHaveAttribute("type", "search");
     expect(input.value).toBe("testando");
@@ -16,7 +16,7 @@ describe("<TextInput />", () => {
 
   it("should call handleChange function on each keu pressed", () => {
     const fn = jest.fn();
-    render(<TextInput handleChange={fn} />);
+    render(<TextInput handleChange={fn} searchValue={"valor digitado no input"}/>);
     const input = screen.getByLabelText("Pesquisar");
     const value = "valor digitado no input";
     userEvent.type(input, value);
@@ -27,7 +27,7 @@ describe("<TextInput />", () => {
   it('should matsh snapshot', () => {
     const fn = jest.fn();
     const { container } = render(<TextInput handleChange=
-      {fn}/>);
-    expect(container).toMatchSnapshot();  
+      {fn} searchValue={"testando"}/>);
+    expect(container).toMatchSnapshot();
   });
 });

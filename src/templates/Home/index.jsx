@@ -12,16 +12,16 @@ export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setallPosts] = useState([]);
   const [page, setPage] = useState(0);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage ] = useState(10);
   const [searchValue, setSearchValue] = useState('');
-  
+
   const noMorePosts = (page + postsPerPage) >= allPosts.length;
 
-  const filteredPosts = searchValue ? 
+  const filteredPosts = searchValue ?
   allPosts.filter(post => {
     return post.title.toLowerCase()
     .includes(searchValue.toLowerCase());
-  }) 
+  })
   : posts;
 
   const handleLoadPosts = useCallback(async (page, postsPerPage) => {
@@ -49,28 +49,28 @@ export const Home = () => {
 
   return (
     <section className="container">
-   
+
       <TextInput searchValue={searchValue} handleChange={handleChange}/>
 
-      { filteredPosts.length > 0 && 
+      { filteredPosts.length > 0 &&
         (<Posts posts={filteredPosts} />)
       }
 
-      { filteredPosts.length === 0 && 
+      { filteredPosts.length === 0 &&
         (<p>Não existem posts</p>)
       }
 
       <div className="button-container">
         {!searchValue && (
-          <Button 
+          <Button
             text="Load more posts"
             onMorePage={loadMorePosts}
             disabled={noMorePosts}
-          />  
+          />
         )}
       </div>
     </section>
-  ); 
+  );
 };
 
 export default Home;

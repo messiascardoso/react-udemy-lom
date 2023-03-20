@@ -14,7 +14,7 @@ exports[`<TextInput /> should matsh snapshot 1`] = `
     <input
       id="textInput"
       type="search"
-      value=""
+      value="testando"
     />
   </div>
 </div>
